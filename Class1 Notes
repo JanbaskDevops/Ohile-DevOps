@@ -1,0 +1,289 @@
+Education background, Yr in IT. Reason to join DevOps
+
+
+1) Please don't make any notes
+https://github.com/JanbaskDevops/studyMatarial
+
+2) Lab for practice:https://killercoda.com/playgrounds/scenario/ubuntu
+
+3) Whatever I am writing here, This also I will share with you.
+
+Total classes: 12
+GIT, Jenkins, terraform, packer, docker, kubernetes, maven, monitoring, SRE, DevSecOps, CICD, Ansible
+Mode of training: lab based
+
+3 Hrs class > 2 Hrs(trainer) 1(Student)
+
+
+Who is father of Devops?  > Patrick Dubois
+
+What is DevOps?
+As per Patrick "DevOps is all about improvement in system"
+
+1970  > 1980  > 1990  > 2000  > 2010 > 2020
+
+1) Messaging
+2) Banking
+3) Travel
+    US > India[24 hours]
+
+
+Techonologies are growing, and we need to update with latest techologies -- DevOps
+Please watching the video> will meet after 10 minutes
+
+
+Patrick has given some advise that is known as DevOps, but their are third party tools from different vendors those has implemeted idea of improvemnt.
+
+DevOps Tools
+============
+Docker[Dot cloud]
+Kubernetess[Google]
+GIT[]
+Jenkins[]
+Terraform[Hashicorp]
+Packer[Haschicorp]
+..
+..
+..
+
+
+What we need to improve by DevOps? # DevOps objectives
+Cost optimization, time optimization and making better quality product
+
+What is Cloud?
+==============
+Running our server in some other people data center, and paying rent to them.
+
+is devOps and cloud are same?
+=============================
+Cloud can be concidered as a part of DevOps.
+
+Azure DevOps/ AWS DevOps
+========================
+it's combination of DevOps and Cloud togather
+
+
+DevOps. DevOps Tool, Cloud, CloudDevOps.
+DevOps talk about improvement.
+
+
+
+
+Before we give any solution, we need to understand the problem. >>> Design thinking.
+
+
+Lets Understand traditional system.
+
+Example> I want to make voting application for election for my country.
+
+*** Some times things are looking very simple, but they are complex.
+Tell me step how to draw tiger?
+
+
+
+Plan: What you want implement, you do planning of that and brain stromming. Which programming language[Java] + Hiring
+
+Code: Developer will write step for Development
+
+Build: Our application contains 2 things
+   1) Business logic
+   2) Presentaion logic
+      Adding presentation logic to business logic
+
+Test: Testing the application and it's quality.
+
+
+CMMI: Capability Maturity Model Integration (CMMI) is a process level improvement training and appraisal program. 
+
+
+CMMI5: Highest
+CMMI1: Lowest
+
+
+CMMI-5 say before we deliver application to client, I will test that application multiple times, and plan for Backup and Disater recover.
+
+Development
+Test
+Preprod
+Prod
+DR
+
+When I would be applying application to any environment other than production that process is known as release.
+When I apply my application to production is known as deploy.
+
+Operate: action that need to do to run your application. 
+Calcultor + Battery[2 yrs]
+Bike/Car
+
+Maintain:
+
+
+Plan code build test release deploy operate monitor
+
+
+Development Phase: Plan code build test.
+Operations phase: release deploy operate monitor.
+
+
+Patrick called Meeting for Development team and Operation team to improve communication
+
+> #DevOps days
+Link: https://devopsdays.org/about/
+
+> 1) Development team need to respect Operation team.
+
+> 2) Operation team needs to respect Development team
+
+> 3) Process would be uniform irrrespective of environment.
+
+> 4) Automation
+
+> 5) Continious improvement
+
+
+ChatGPT
+=======
+
+    Terraform code that does the following:
+    Build a new nginx:latest image with a custom nginx.conf via Dockerfile
+    Create a new namespace
+    2 Replicaset
+    0.5vcpu & 512Mi Limit
+    ClusterIP + Port 8080
+    1 Persistent Volume
+        2Gi capacity
+        local file path (e.g., ${PWD}/pvc)
+    Set nginx logs to write to the above PVC
+
+Homework: 
+1) Make you hand darty with atleast 10 searches in ChatGPT
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
