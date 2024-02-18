@@ -1,0 +1,237 @@
+Agenda
+=======
+Development mindset
+Agile methodology
+Oeration mindset
+Host deployment
+Deployment stategy
+Multile environment planning
+Bidding and technical process
+
+1) Development mindset
+======================
+1 > Developer are thinking 20 years ahead.
+Aerplane[2000]
+
+2 > Developer is building something which no has seen so far so their would be many time feedback is needed.
+
+> ATM[10-15 yrs prior of installation of ATM]
+
+
+2) Operation mindset
+====================
+Operation people are just stick to process, and they will ask you to follow process without fail.
+
+Because of above mindset there is alway a fight, and they are not not listening to each other.
+
+
+why we need to solve the problem
+================================
+Both Developer are Ops are working for same people, and their business goal is also same.
+
+Without fuel no run, without bike fuel is useless
+
+
+Who will solve this problem?
+============================
+DevOps Engineer
+
+
+Agile and microservices
+========================
+To solve Development hierachy[Manager > Architect > Team Lead > Memeber] Agile has given principles.
+
+Link: https://www.agilealliance.org/agile101/12-principles-behind-the-agile-manifesto/
+
+1) Our highest priority is to satisfy the customer through the early and continuous delivery of valuable software.[10% > 20% > 30%....]
+Break task into multiple part, and delivery it into parts, and take feedback to improve.
+
+
+2) Welcome changing requirements, even late in development. Agile processes harness change for the customer’s competitive advantage.
+
+3) Deliver working software frequently, from a couple of weeks to a couple of months, with a preference to the shorter timescale.
+
+4) Business people and developers must work together daily throughout the project.
+
+5) Build projects around motivated individuals. Give them the environment and support they need, and trust them to get the job done.
+
+6) The most efficient and effective method of conveying information to and within a development team is face-to-face conversation.
+     Human mind works on Image.
+
+7) Working software is the primary measure of progress.
+
+8) Agile processes promote sustainable development. The sponsors, developers, and users should be able to maintain a constant pace indefinitely.
+   <<<<One should design sustanable application>>>
+
+9) Continuous attention to technical excellence and good design enhances agility.
+
+10) Simplicity–the art of maximizing the amount of work not done–is essential.
+    10% work is done (Attitude)
+    90% work is remaining (resposibility)
+
+11) The best architectures, requirements, and designs emerge from self-organizing teams.
+
+12) At regular intervals, the team reflects on how to become more effective, then tunes and adjusts its behavior accordingly.
+
+
+Sustanable Design
+=================
+1 Server > 100 users[upto hunders]
+
+5000 users:  50 server
+10000 users: 100 server
+20 users: 1 server
+0 users: no server
+200 users: 2 server.
+
+
+People who are using whataapp[7 AM to 11 AM, 6 PM to 11 PM]
+
+Designing server for facebook
+=============================
+Everyday user are increaing[15 yrs back].
+Now user are not active much[]
+
+Action point: Facebook need to decommison few server as they are not needed, and facebook may need to add few servers if needed
+
+Application behaviour that support scaleup and scaledown are sustanable application design.
+[scaleup]> Increasing the server/capacity
+[scaledown] > decresing the server/capacity
+
+
+So, in application development we have 2 phase:
+Development > Plan code build test
+Operation> Release Deploy Operate Monitor
+
+Agile principles only talk abour development.If we implement Agile into entire Application development cycle, it become DevOps
+
+"Implementing Agile in Operation"
+
+
+Environemnt Planning
+=====================
+
+Development > Developer
+
+Test1 > Tester
+
+Test2 > Tester
+
+Test3 > Tester
+
+Preproduction > It same as production, we test all the changes here before we deliver to client
+
+Production > Client
+
+Disaster recover > Natual disater recover.
+
+
+Type of Testing
+================
+
+Requirement: Adding 2 number[num1 and num2]
+
+# This program adds two numbers
+
+num1 = 1.5
+num2 = 6.3
+
+# Add two numbers
+sum = num1 + num2
+
+# Display the sum
+print('The sum of {0} and {1} is {2}'.format(num1, num2, sum))
+
+
+Unit testing: Here Developer will write some testcase to check his implementation.
+  > sum(10+15)=25
+
+System Testing:
+===============
+Screen, battery
+
+Integration testing:
+===================
+Current: Addition
+Next: Addition + Sustration
+
+
+Load testing/Capacity testing
+=============================
+Minimum hardware requirements:
+
+    256 MB of RAM
+
+    1 GB of drive space (although 10 GB is a recommended minimum if running Jenkins as a Docker container)
+
+GIT - 2Class
+
+Packer/Terraform - 1 Class
+
+Azure DevOps- 1 Class
+
+Docker - 2 Class
+
+K8s- 1 Class
+
+SRE/Monitoring and Ansible- 1 Class
+
+CICD[Sonacloud, Artifactory, Maven, GIThub and GITLab]- 1 Class
+
+Jenkins- 1 Class
+
+DeVSecOps- 1 Class
+
+We can plan 2-3 addional class.[Interview Support/ Documentaion and future roadmap]
+
+DeVSecOps
+=========
+DevOps talks about improvement, but without security all is fail
+
+DevOps with security is known as DevSecOps
+
+1) SAST- Static Application security testing
+============================================
+Here with the help of some third part tool we will scan the code, and tell to developer where we can see vuranbility.
+
+[Source code] https://github.com/juice-shop/juice-shop
+Step1: git clone https://github.com/juice-shop/juice-shop
+
+[SAST tool link] https://github.com/ZupIT/horusec
+Step2: apt-get update ; apt install jq
+
+Step3: curl -fsSL https://raw.githubusercontent.com/ZupIT/horusec/master/deployments/scripts/install.sh | bash -s latest
+
+Step4: horusec start -D -e="true" -p ./
+
+==================================================================================
+
+In this analysis, a total of 492 possible vulnerabilities were found and we classified them into:
+Total of Vulnerability CRITICAL is: 382
+Total of Vulnerability HIGH is: 102
+Total of Vulnerability MEDIUM is: 5
+Total of Vulnerability LOW is: 3
+
+==================================================================================
+
+How DevOps Engineer work?
+=========================
+DeveOps Engineer will have meeting regularly with development team, and suggest them to use tool to automate the process.
+Development team will finalize some tool, and devOps Engineer will implement it.
+
+>> Hello DevOps Team, please implement Hursue tool for SAST.
+
+DAST[Dynamic Appplication security testing]
+====
+Here, we would be having some URL where Application is running. I would doing testing on that application URL.
+
+Run application as container
+Step1: docker run --rm -idt -p 3000:3000 bkimminich/juice-shop 
+
+docker run -t ghcr.io/zaproxy/zaproxy:stable zap-baseline.py -t <Application URL>
+docker run -t ghcr.io/zaproxy/zaproxy:stable zap-baseline.py -t http://ip172-18-0-5-cn932ncnupig00fgoka0-3000.direct.labs.play-with-docker.com/#/
+
+WARN-NEW: Dangerous JS Functions [10110] x 2 
+        http://ip172-18-0-100-ckucfiufml8g009dm00g-3000.direct.labs.play-with-docker.com/main.js (200 OK)
+        http://ip172-18-0-100-ckucfiufml8g009dm00g-3000.direct.labs.play-with-docker.com/vendor.js (200 OK)
+FAIL-NEW: 0     FAIL-INPROG: 0  WARN-NEW: 9     WARN-INPROG: 0  INFO: 0 IGNORE: 0       PASS: 56
