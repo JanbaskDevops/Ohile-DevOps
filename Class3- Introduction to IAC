@@ -1,0 +1,175 @@
+Today's Agenda: Terraform, Packer, Golden Image
+
+Application: Spring pet clinic
+
+Lets say development team has written the below steps:
+
+git clone https://github.com/spring-projects/spring-petclinic.git
+cd spring-petclinic
+./mvnw package
+java -jar target/*.jar
+
+
+How to install java
+====================
+
+root@ip-172-31-30-30:~# java --version
+Command 'java' not found, but can be installed with:
+apt install openjdk-11-jre-headless  # version 11.0.20.1+1-0ubuntu1~22.04, or
+apt install default-jre              # version 2:1.11-72build2
+apt install openjdk-17-jre-headless  # version 17.0.8.1+1~us1-0ubuntu1~22.04
+apt install openjdk-18-jre-headless  # version 18.0.2+9-2~22.04
+apt install openjdk-19-jre-headless  # version 19.0.2+7-0ubuntu3~22.04
+apt install openjdk-8-jre-headless   # version 8u382-ga-1~22.04.1
+
+apt-get update ; apt install openjdk-17-jre-headless -y
+
+root@ip-172-31-30-30:~# java --version
+openjdk 17.0.9 2023-10-17
+OpenJDK Runtime Environment (build 17.0.9+9-Ubuntu-122.04)
+OpenJDK 64-Bit Server VM (build 17.0.9+9-Ubuntu-122.04, mixed mode, sharing)
+
+<Major-release>.<Minor-release>.<fixpack>
+
+Here, We are just executing the setps given by development team. Most of times those steps are correct, but might be not working so, we need to contact development team. So, we need supporting tool to raise ticket with development team.
+
+Example of tool: JIRA
+
+JIRA support primarily 5 times of ticket-
+1) EPIC - Epic is kind of big requirement that can be further deived into multiple part
+2) Story/Userstory- Subpart of EPIC is known as Story
+3) TASK- For dedecated team
+4) Subtask- some dedicated team
+5) Bug/support- these are ticket for solving the issue
+
+You want to create spring pet clinic
+EPIC: Spring pet clinic[Name given to project]
+Story: Development for Spring pet clinic
+  Task1:
+      Task1.1:
+      Task1.2:
+      Task1.3:
+  Task2:
+  Task3:
+Story: Testing for Spring pet clinic
+  Task1:
+  Task2:
+  Task3:
+Stroy: Deployment for Spring pet clinic
+  Task1:
+  Task2:
+  Task3:
+Support/bug: When you feel you need supporting hand from another team that you would be raising the support ticket.
+
+Platform Engineering
+=====================
+These people are working for Platform related task[Linux]
+
+Here, let say my application is supporting 100 users.
+My-requirement   serverCount 
+20000             200
+
+
+So, here everytime I need to execute the same steps which may consume the time.
+
+Golden image:
+=============
+I want to install Java, terraform and packer into 200 boxes
+
+root@ip-172-31-24-10:~# java --version
+openjdk 17.0.9 2023-10-17
+OpenJDK Runtime Environment (build 17.0.9+9-Ubuntu-122.04)
+OpenJDK 64-Bit Server VM (build 17.0.9+9-Ubuntu-122.04, mixed mode, sharing)
+root@ip-172-31-24-10:~# terraform --version
+Terraform v1.7.4
+on linux_amd64
+root@ip-172-31-24-10:~# packer --version
+Packer v1.10.1
+
+Currently creating AMI ami-07c75a11a8347e82a from instance i-06ed830403e858980. Check that the AMI status is 'Available' before deleting the instance or carrying out other actions related to this AMI.
+
+What is Golden image?
+====================
+Homework.
+
+
+What is packer?
+===============
+Packer is a DevOps tool to create golden image.
+
+How to install packer?
+======================
+https://developer.hashicorp.com/packer/install?product_intent=packer
+
+
+What is terraform?
+==================
+Terraform is a tool to create infrastucture in cloud.
+
+How to install terraform?
+========================
+Link: https://developer.hashicorp.com/terraform/install
+
+How terraform will work?
+How I can create resources in terraform?
+
+
+# Terraform is a tool provides by heshicorp to manage infrastucture in all cloud formate.
+
+# It support around 4000 providers.
+
+# In terraform when you need to create infrastucture you need to generate access key and secrate key
+https://k21academy.com/amazon-web-services/create-access-and-secret-keys-in-aws/
+[Make sure you are providing admin access while creating the user]
+
+# To write infrasture, we need to write main.tf file. in main.tf file we would be writing needful configuration
+Example:
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 4.16"
+    }
+  }
+
+  required_version = ">= 1.2.0"
+}
+
+provider "aws" {
+  region  = "us-west-2"
+}
+
+resource "aws_instance" "app_server" {
+  ami           = "ami-830c94e3"
+  instance_type = "t2.micro"
+
+  tags = {
+    Name = "ExampleAppServerInstance"
+  }
+}
+
+Let say you want to create S3 Bucket in AWS
+Link: https://registry.terraform.io/providers/hashicorp/aws/latest
+
+terraform {
+  required_providers {
+    aws = {
+      source = "hashicorp/aws"
+      version = "5.38.0"
+    }
+  }
+}
+
+provider "aws" {
+  resource "aws_s3_bucket" "example" {
+  bucket = "my-tf-test-bucket"
+
+  tags = {
+    Name        = "My bucket"
+    Environment = "Dev"
+  }
+ }
+}
+
+Homework: https://developer.hashicorp.com/terraform/tutorials/aws-get-started/aws-build
+Watch all 7 or section
