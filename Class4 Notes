@@ -1,0 +1,32 @@
+Their are two verticle
+
+1) DevOps
+2) Cloud
+
+These are trending technoloies, but we have one more tool which is combination of DevOps and Cloud[CloudDevOps]
+
+All the cloud would be having implementation of such tool like-
+1) AWS DevOps
+2) Azure DevOps
+2) Google DevOps
+
+Azure DevOps: https://dev.azure.com/
+
+Here, you would able to see the services of DevOps running on cloud
+
+Azure DevOps is a YAML based tool where you would be just specifying what you need.
+
+So, there are 5 components of DevOps
+
+1) Repo
+2) Artifact
+3) Board
+4) Test Plan
+5) Pipeline
+
+Question: This is YAML based tool, do I need to learn YAMl?
+Answer: Yes, but very easily you can use it
+
+Homework:
+1) Watching terraform video
+2) Exploring https://azuredevopslabs.com/labs/azuredevops/EndtoEnd/
