@@ -1,0 +1,264 @@
+Version control system[VCS]
+===========================
+> Sometimes writing the program for developer is not a one step process, a lots of modification needed to be done.
+
+Question?
+=========
+How we can track those modification.
+
+> When we are doing change in the file. file would be showing latest changes.
+
+
+Hello
+Hi
+Bye
+Namaste
+Removed Hello from top
+Added hello in the down
+200+ changes
+
+Developer are doing changes on hit and trial basis. for tracking the changes whatever he has done we have VCS.
+
+in VCS: + add(Green colour)
+        - Removed (Red colour)
+
+Commit message: it's a useful summary what changes we have done in the file.
+
+
+
+Core concept of VCS
+====================
+
+1) Commit message: It's useful summary of activity that we have done.
+
+2) Compressing: Saving the size
+Image(100MB) > Compress> Image(50MB) 
+
+3) Trcking who has done the changes: We have 5 users, and all of them are doing changes in same file, so we should easily able to identify who has done change and when they have done changes.
+
+4) History of change[what changes done so far]
+
+Exacize:
+=======
+1) What is repository? > It's a place where we store data/files.
+
+2) How to create the repository?
+> When we are creating the repository, we would be getting below output-
+
+…or create a new repository on the command line
+
+echo "# testrepository" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/JanbaskDevops/testrepository.git
+git push -u origin main
+
+…or push an existing repository from the command line
+
+git remote add origin https://github.com/JanbaskDevops/testrepository.git
+git branch -M main
+git push -u origin main
+
+…or import code from another repository
+
+You can initialize this repository with code from a Subversion, Mercurial, or TFS project.
+
+What is repository and why we need it?
+======================================
+
+Let say my requirement is I want to create E-learning website.
+
+1) Code
+2) Images
+3) Testcase.
+4) Video
+5) Metadata
+
+If we put all these things togather it would be 200+ files
+
+SO, have 2 ways-
+
+1) Keep everything in one place
+
+2) Keep Everything systematically
+
+
+> "The purpose of repository is to keep everything in organized manner"
+> I want my data should be compressed automaticlly.
+> I would have some URL to share my data with anyone.
+
+To fulfil these requirement, we need to create the repository
+
+Master and local repository
+===========================
+Master: https://github.com/JanbaskDevops/DevOps_01_-024 [It's repo that can be access by URL globally]
+Local: Copy of master repository to your local system
+
+
+What happen we we create the repository
+=======================================
+
+I can create repository in 2 ways-
+1) By GUI terminal[in this case we are creating master repository]
+
+2) By linux terminal[Local repository]
+ubuntu $ mkdir Test
+ubuntu $ cd Test/
+ubuntu $ git init
+Initialized empty Git repository in /root/Test/.git/
+
+3) What happen when we create local repository?
+Local repository would be not helful for you, you need to link it with some master repository
+
+
+4) What happen when we create master repository?
+
+it would be giving steps for us to setup local repository
+
+…or create a new repository on the command line
+
+echo "# Ohile_empty1" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/JanbaskDevops/Ohile_empty1.git
+git push -u origin main
+
+…or push an existing repository from the command line
+
+git remote add origin https://github.com/JanbaskDevops/Ohile_empty1.git
+git branch -M main
+git push -u origin main
+
+…or import code from another repository
+
+You can initialize this repository with code from a Subversion, Mercurial, or TFS project.
+
+In GIT system we have 4 areas-
+
+1) Local repository
+2) Master Repository
+3) Working directory: It's place from where we would be operating.
+4) Stagging area: This is the place where data compression and encryption is happening
+
+Folder vs repository
+====================
+What is folder: It's placeholder where you are putting data/files.
+
+What is repository: In our folder we would be having files/data, let say I want versionig to be enable in that folder, then I would be specifying by git init command.
+
+git init: it's utility that convert folder into repository
+
+Tracked file vs untracked file
+==============================
+When we are creating the file, it would be untracked file
+
+
+Authenticating myself
+=====================
+
+ubuntu $ git commit -m "Adding file umesh.test"
+
+*** Please tell me who you are.
+
+Run
+
+  git config --global user.email "you@example.com"
+  git config --global user.name "Your Name"
+
+to set your account's default identity.
+Omit --global to set the identity only in this repository.
+
+fatal: unable to auto-detect email address (got 'root@ubuntu.(none)')
+
+buntu $ mkdir test
+ubuntu $ cd test
+ubuntu $ vi Umesh.test
+ubuntu $ git status
+fatal: not a git repository (or any of the parent directories): .git
+ubuntu $ git init
+Initialized empty Git repository in /root/test/.git/
+ubuntu $ git status
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        Umesh.test
+
+nothing added to commit but untracked files present (use "git add" to track)
+ubuntu $ git add Umesh.test
+ubuntu $ git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+        new file:   Umesh.test
+
+ubuntu $ git commit -m "Adding file umesh.test"
+
+*** Please tell me who you are.
+
+Run
+
+  git config --global user.email "you@example.com"
+  git config --global user.name "Your Name"
+
+to set your account's default identity.
+Omit --global to set the identity only in this repository.
+
+fatal: unable to auto-detect email address (got 'root@ubuntu.(none)')
+ubuntu $ git config --global user.name umesh
+ubuntu $ git config --global user.email test@gmail.com
+ubuntu $ git commit -m "Adding file umesh.test"
+[master (root-commit) 96e5d1c] Adding file umesh.test
+ 1 file changed, 1 insertion(+)
+ create mode 100644 Umesh.test
+ubuntu $ 
+
+
+Our Primary goal is to save our data in remotely/central places for reusing purpose.
+
+
+Actual steps:
+1) Go to git hub and create the repository.
+
+2) go linux terminal and clone the repository
+   git clone https://github.com/JanbaskDevops/Ohile-testing02032024.git
+
+Clone means creating local repository from remote repository
+
+
+Communication between local and remote repository
+=================================================
+By default we would be getting below error when we try to push the data from local to remote
+
+ubuntu $ git push -u origin main
+error: src refspec main does not match any
+error: failed to push some refs to 'https://github.com/JanbaskDevops/Ohile-testing02032024.git'
+
+git to github communication
+===========================
+GIT is using token based authentication to create communication between local and remote repository 
+
+Token based authentication: https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens
+
+git remote set-url origin https://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@github.com/JanbaskDevops/Ohile_empty1.git
+
+git remote set-url origin https://<GITHUB_ACCESS_TOKEN>@github.com/<GITHUB_USERNAME>/<REPOSITORY_NAME>.git
+
+Homework
+=========
+1) Create a repository with name "umeshlearning"
+2) clone that repository to local[killer koda]
+3) create token for authentication
+4) push the changes from local to remote
+
+
+
