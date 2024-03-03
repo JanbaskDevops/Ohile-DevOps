@@ -1,0 +1,239 @@
+What is DevOps?
+===============
+Father of DevOps: Patrick Dubois
+DevOps is improvment in existing system.
+
+              Mobile-Phone         Travel            Bank 
+2020
+
+2010
+
+2000
+
+1990
+
+1980
+
+
+In last few yrs technologies are improved alot.
+Alligning improvemnt to system.
+
+What is DevOps
+==============
+
+Umesh(Java)
+Ohile(Dotnet)
+
+requirement1- Java    - Umesh
+requirement2- dotnet  - Ohile
+
+Defination1: DevOps is all about improvment in existing syttem
+Defination2: DevOps is All about system placement.
+
+Task1: https://www.youtube.com/watch?v=5VqXqtL0xQI.
+
+DevOps Tools:
+==============
+DevOps taslk about improvment, but we can achive improvement with the help of DevOps tools-
+Docker, Kubernetes, terraform, packer, maven, GIT, Jenkins, AzureDevOps, JIRA, Sonarcloud, Artifactory, Security Scan[DAST/SAST], Ansible....
+
+Where I can practice?
+=====================
+Lab: https://killercoda.com/playgrounds/scenario/ubuntu
+
+What is DevOps tools and how they help us?
+=========================================
+Let say my developer has written code for Juice shop
+
+Link: https://github.com/juice-shop/juice-shop
+
+I just want to know if their is any security vurnability[Secuity issue]
+
+Vurnabilty: It's is peace of code that causes security issue is known as vurnability.
+
+User.name=Pankit
+User.email=Pankit@gmail.com
+user.mail.password=Pankit@321
+
+Step1: git clone https://github.com/juice-shop/juice-shop
+
+[SAST tool link] https://github.com/ZupIT/horusec
+Step2: apt-get update ; apt install jq
+
+Step3: curl -fsSL https://raw.githubusercontent.com/ZupIT/horusec/master/deployments/scripts/install.sh | bash -s latest
+       horusec version
+
+Step4: horusec start -D -e="true" -p ./
+
+Prequestis:
+==========
+1) You should be family with linux camand.
+2) You should interested to explore things
+
+
+Chatgpt:
+========
+Chatgpt is a AI tool that will do all activity for you depend on your instruction.
+ChatGPT link: https://chat.openai.com/auth/login
+
+It's like google, but here you would be getting only 1 answer which is the most perfect.
+
+1) How to install and configure sonar cloud in Ubuntu system
+2) How to create Jenkins pipeline for spring pet clinic application
+3) How to multistage docker file
+4) How to write azure devops pipeline
+5) How to install kubernetes in ubuntu
+
+
+Ground rule:
+============
+1) Whenever you have any doubt you will seach in chatGPT.
+2) When you know things please do chat GPT to learn about it.
+3) Whenever you see a new team or command take chatgpt help to build your understanding.
+4) Please use standard document.
+
+
+
+What you need to make your understanding?
+=========================================
+You need build your basics, then you need to focus on document reading.
+
+My architect is asking me to implement alidns by terraform
+
+
+variable "name" {
+  default = "tf_example"
+}
+variable "domain_name" {
+  default = "alicloud-provider.com"
+}
+data "alicloud_resource_manager_resource_groups" "default" {}
+resource "alicloud_cms_alarm_contact_group" "default" {
+  alarm_contact_group_name = var.name
+}
+
+resource "alicloud_alidns_gtm_instance" "default" {
+  instance_name           = var.name
+  payment_type            = "Subscription"
+  period                  = 1
+  renewal_status          = "ManualRenewal"
+  package_edition         = "standard"
+  health_check_task_count = 100
+  sms_notification_count  = 1000
+  public_cname_mode       = "SYSTEM_ASSIGN"
+  ttl                     = 60
+  cname_type              = "PUBLIC"
+  resource_group_id       = data.alicloud_resource_manager_resource_groups.default.groups.0.id
+  alert_group             = [alicloud_cms_alarm_contact_group.default.alarm_contact_group_name]
+  public_user_domain_name = var.domain_name
+  alert_config {
+    sms_notice      = true
+    notice_type     = "ADDR_ALERT"
+    email_notice    = true
+    dingtalk_notice = true
+  }
+}
+
+resource "alicloud_alidns_address_pool" "default" {
+  address_pool_name = var.name
+  instance_id       = alicloud_alidns_gtm_instance.default.id
+  lba_strategy      = "RATIO"
+  type              = "IPV4"
+  address {
+    attribute_info = <<EOF
+    {
+      "lineCodeRectifyType": "RECTIFIED",
+      "lineCodes": ["os_namerica_us"]
+    }
+    EOF
+    remark         = "address_remark"
+    address        = "1.1.1.1"
+    mode           = "SMART"
+    lba_weight     = 1
+  }
+}
+
+
+Please explain below command to me
+apt-get update ; apt install jq
+
+
+
+DevOps Actual picture and it need?
+===================================
+
+In DevOps we have 2 teams-
+
+1) Development team[Dev Team]
+============================
+Task1: Think for the steps how to elephant.
+1) Developer is working on some idea which is never implemented[ATM], so he is doing so many experiment/changes.
+
+2) Developer think for 20 yrs ahead.
+
+
+2) Operation team[Ops Team]
+===========================
+They have fixed schedule/sctivity that we need to follow.
+
+They want you to follow the policy/process without fail
+
+There would be alway a communication gap betwwen development and Operation.
+
+Senario:
+========
+CitiBank, a/c balance 25000$, you balance is showing -4000$ after depositing 15000$[Expected: 40000$, EMI to pay].
+
+customer support[raise ticket for a problem]
+
+
+int/long balance, deposite[0 to 65535> 65536 > 0] // 
+balance= balance + deposite
+
+Planet: Earth
+Planet: Jupitor
+
+Devs are from Venus. Ops are from Mars
+[These people even dont try to understand each other]
+
+
+
+Why DevOps started?
+===================
+
+Patrick debois was working on project where he feel there is so much problem because of Develpment and Operation teams thinking, and he wanted to sortout that.
+
+
+He called one meeting. subject: #DevOpsDay
+
+Mom:
+1) Development team will respect Ops Team as senior citizen
+
+2) Ops Team will respect Develepement team.
+
+3) Process should be same for all.[Developement, Test, Preprod, prod....]
+
+4) Automation.[Avoiding manual work]
+
+5) Improvement.
+
+
+Depending on above 5 principle we have set of DevOps tool.
+
+Homework:Study about these topics from Chat GPT[expalin in 100 words]
+Introduction to DevOps
+Core Principles of DevOps
+Benefits of DevOps Adoption
+DevOps Practices
+Continuous Integration (CI)
+Continuous Delivery (CD)
+Infrastructure as Code (IaC)
+Monitoring and Logging
+Automated Testing
+Collaboration and Communication
+DevOps Tools Landscape
+Case Studies: Successful DevOps Implementations
+Challenges in DevOps Adoption
+DevOps Culture and Team Dynamics
+Security in DevOps
+Future Trends in DevOps
