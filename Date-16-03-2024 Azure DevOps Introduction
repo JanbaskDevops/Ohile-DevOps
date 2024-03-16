@@ -1,0 +1,169 @@
+We have 2 things in IT industry that are growing-
+
+1) DevOps > Improment in system
+2) Cloud > Purchaing things on rent
+
+Example: 
+1) Marriage suit
+2) Laptop with windows-10 5yrs
+     total number of hours in 5 yr: 43800 hrs
+                        Actual use: 20000 hrs[wasting: 23800 hr]
+
+* When we are purchaing the things we are paying upfront cost.
+
+** Why to purchase when you can rent out? // Cloud computing
+
+water purifier: 10000 INR
+rent water purifier: 365 INR[Monthly bill]
+
+What is cloud computing
+========================
+It's super store where you would be getting All the IT software's on rent.
+
+Main purpose: Cost optmization.
+
+We have 2 very improtant concept
+1) Cloud computing[Azure Cloud, AWS]
+2) DevOPs
+
+Azure Cloud: https://portal.azure.com/#allservices[Create virtual machine in Azure]
+Azure is having video tutorials and documentation to create services.
+https://learn.microsoft.com/en-us/azure/virtual-machines/linux/quick-create-portal?tabs=ubuntu
+
+
+AWS cloud: 
+https://docs.aws.amazon.com/efs/latest/ug/gs-step-one-create-ec2-resources.html
+
+
+How many diffrent cloud providers we have?
+
+IBM cloud- Lagecy Application/reserch
+Oracle Cloud- Java/Database
+Google Cloud- Seach based optimization
+Azure Cloud- When you are using microsoft products[35%]
+AWS cloud- It's very good for startup.
+
+around 4000 provider
+
+How to choose best cloud provider for me?  > Owner, Cost, Reliability, specilization
+All these these cloud are having some specilization
+
+1) Database[Oracle] > Java >Oracle cloud.
+2) Windows from AWS/Azure
+3) I want to create java based application
+
+*** These days all cloud are equally important, we have concept of cloud native application design.
+
+If my application is working fine on one cloud provider, it will work fine in other cloud provider also.
+
+*** When you are using multiple cloud providers in your system then it's good approache.
+
+
+All these cloud provider they have implemented their own devOps-
+
+plain DevOps
+AWS DevOps
+Azure DevOps
+IBM DevOps
+GCP DevOps
+
+You are getting advantage of DevOps and cloud both.
+
+
+Lets say my requirement is I want to install java17 and git in ubuntu box
+
+1) Without cloud: You would be having dependancy from Linux team, they will do this for you. and payment would be upfront.
+
+2) With cloud: Here you would be just specifying what you need, they will do all for you, and you just need to pay as per your usage.
+
+
+Requirement: I want to create linux box, and want to display  "Welcome to Linux"
+               echo "Welcome to liux"
+
+AzureDevOps and Azure Portal are two different things.
+
+in Azure Portal we are creating the resources in cloud
+https://portal.azure.com/#home
+
+in Azure DevOps we are impelmenting devOps practices.
+https://dev.azure.com/d
+
+How AzureDevOps and Azure cloud are releated?
+=============================================
+Azure DevOps is one of the services provided by azure cloud.
+
+Azure DevOps is a very popular cloud tool which act as a separate tool
+
+How to link between azure DevOps/ Azure cloud
+==============================================
+- Service connection
+- Token
+
+Suscription:
+============
+Whenever we are using any cloud services we need to pay money to cloud provider.
+
+How you would be doing the biling? 
+- Pay as you go
+- student
+- Free trial
+
+Agile principles:
+================
+We have two mathods for developing the software-
+1) Traditional
+      Plan[Out line of my requirement delivery] > code[requirement into codes] > Build[Adding business logic with non business logic] > Test > release[deployment of application into any environment other than production] > deploy[Deployment into production] > operate > Monitor [1 cycle process]
+
+Drawback of this approache: Around 75% resource wasting
+
+
+2) Agile: We are deviding our project into multiple parts, and we would be implementing them parallely.
+
+There are 12 principles given by agile-
+
+10% Done
+90% remaining
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+How I can know the steps:
