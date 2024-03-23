@@ -1,0 +1,182 @@
+Link for Azure Pipeline: https://dev.azure.com/
+
+Link for Azure cloud: https://portal.azure.com/#home
+
+In azure cloud we are creating the infrastucture, and with the help of Azure devops pipeline we are accessing that infrascture.
+
+Subscription: it's a mathod used for bill to use cloud resources.
+
+Creating infrastucture: This is the basically part of cloud/Linux team. Even we can also do this, that we will see in terraform later session.
+
+What is Azure Pipeline, and why we need them?
+=============================================
+Azure pipelines are step by step implementation of SDLC.
+
+SDLC: Plan code Build Test release Deploy Operate and Monitor
+
+Step1: Understanding and creating organisation?
+===============================================
+
+Oraganisation# It's Name given to agreement between two parties to implement devops.
+
+Oranisation > Projects[which follow SDLC implementation]
+
+Note1: Within organisation we can have multiple project.
+Note2: Default project is private project
+
+When we are creating project project we can see 5 icons-
+1) Repository
+2) Board
+3) Pipeline
+4) Artifact
+5) Test Board
+
+# With the of above 5 services we can implement the devops[Azure Devops]
+
+Repository
+==========
+Repository is a place where we can store our file[central location]
+
+
+
+
+
+
+
+Key Point
+=========
+1) Organisation > Project[Linux, DevOps and Cloud] > Teams[We can invite the people]
+2) We can create multiple teams as per our project infractucture
+Oraganisation > Oraganisation name > project > project name > project setting > teams > creating the team
+3) How these team are communication with each other[Ticketing tool, called azure board]
+Example: I am from testing team and I want to create issue with Development Team
+
+Azure Board:
+===========
+It's ticketing tool/tool to track the activity.
+
+Sprint: It's basically timeline defined by a project.
+Backlog: What functionity we want to implement.
+
+
+Sprint1:
+I want to create calculator
+Task1> Developement team to develop calcultor [Assigned to Development team]
+Task2> Tesing team to test calculator [Assigned to Testing team]
+Task3> Packing team to package calculator [Assigned to packing team]
+Task4> Validation team to validate calcultor [Assigned to validation team]
+
+Task: Some requirement that needs to be fulfilled.
+Issue: During the task if we face any issue then we will open ticket to concern team
+EPIC: Collection of task related to particular activity[Epic name is Calculator]
+Support:
+UserStory
+Bug
+Test
+Artifact
+
+What if I want to get additonal oprions other than above?
+Basic, Agile, CMMI and Scrum
+
+
+How to select the workflow? and who would be seleting the workflow
+==================================================================
+Artitect or technical manager needs to take call.
+
+Task1: 
+Create organisation with name Janbask.
+Create a project with name DevOps.
+Create 6 Team[Dev, Test, QA, Client, internal and Project manager]
+Select the Basic, CMMI, Scrum and Agile Process and list down the different ticketing stategy.
+
+Repository
+==========
+It's a central place where we would storing our data.
+
+Create new repository
+Import repository
+Manage repository
+
+My requirement is I want to deploy my application[spring pet clinic] into server with 5 GB RAM, and 1000 HDD and 4 CPU.
+
+Agent
+=====
+Pool: Group of server with some desinated capacity
+Poolwith4CPU1000HDD4RAM
+
+1) Create a pool with desirename
+2) Find the agent command[When I am clicking on new agent]
+
+By default microsoft also provide some pool with default capacity[2CPU and 8RAM]
+
+Task:
+=====
+I want to run my application with server 1000GBHDD4CPU16RAM and I want to user Azure DevOps process, and my source code is springpetclinic
+
+> Create account in Azure DevOps
+> Create account in Azure portal
+> Create resource in Azure Portal with desire capacity
+> Link Azure Portal and Azure devops by Agent
+> Run the pipeline to achive the desire things.
+
+
+Pipeline
+=========
+When Developer is writing the code for any project, he will give you steps how you can run the project.
+
+Spring Petclinic is a Spring Boot application built using Maven or Gradle. You can build a jar file and run it from the command line (it should work just as well with Java 17 or newer):
+
+git clone https://github.com/spring-projects/spring-petclinic.git
+cd spring-petclinic
+./mvnw package
+java -jar target/*.jar
+
+You can then access the Petclinic at http://localhost:8080/.
+
+Now This process involve some tools and steps those things in combine called pipeline
+
+Pipeline: Step by Step execution of software development lifecycle steps
+
+Types of Pipeline
+================
+1) Build Pipeline
+2) Release pipeline
+3) Deploy pipeline
+
+Build Pipeline:
+==============
+So in any project we have 2 things-
+1) Business logic > Calculator[Java program for calculator]
+2) Presentation logic [Screen of battery of calculator]
+
+Combining business logic with presntation logic is known as build pipeline.
+
+
+In IT inductry we have multiple environment to do the activity like-
+1) Development, 2) Test, 3) Preprod, 4) Prodution, 5) Staggimg
+
+When we will be deploying code to any environment like except production is known as release pipeline.
+
+When we will deploy code into production is known deploy pipeline.
+
+Artifact
+========
+Suppose, I have 5 environment, and I have created 5 different pipeline. in all the pipeline steps would be almost same.
+
+
+git clone https://github.com/spring-projects/spring-petclinic.git
+cd spring-petclinic
+./mvnw package
+java -jar target/*.jar
+
+
+WORA: write once run anywhere.
+
+Example: Create account into google and send test email to umesh@janbask.com repeat this for 30 days.
+
+
+Tomorrow:
+1) Ansible,
+2) Monitoring
+3) SRE
+4) Certificate
