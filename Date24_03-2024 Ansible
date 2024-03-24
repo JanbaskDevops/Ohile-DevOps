@@ -1,0 +1,85 @@
+JB10401 DevOps 24th March, Class12, Ansible, Monitoring and SRE and certification
+=================================================================================
+
+1) Ansible
+2) Monitoring
+3) SRE[Alias name for DevOps in Google] > Site reliability Engineer
+
+DevOps: All about improvement in existing system
+
+SRE: If their is any problem fix that problem and implement DevOps
+Link: https://orangematter.solarwinds.com/2022/03/22/what-is-site-reliability-engineering-sre/
+https://www.sketchbubble.com/en/presentation-site-reliability-engineering.html
+
+DevOps Principles:
+==================
+ Development Team
+ Operation Team
+
+1) Development team should respect Operation team.
+2) Operation team should respect development team
+3) Process should be uniform.
+4) IAC[Infrastucture as code]
+5) CICD pipeline
+
+
+SRE Principles
+==============
+1) Do automation
+2) Eliminate manual work.
+
+
+Killer koda Ansible session: https://killercoda.com/het-tanis/course/Ansible-Labs
+
+Important point: Ansible Configuration are mostly done linux.
+
+Step1: Created servers[4 server in our case, name is server1, server2, server3 and server4]
+
+Step2: Make 1 server as controller
+
+Step3: Creating server group
+
+[FE server]
+Server1
+Server2
+Server3
+
+[BE server]
+Server4
+Server5
+Server5
+
+[MW server]
+Server7
+Server8
+Server9
+
+all: All 9 server
+
+FE server: server1, Server2 and Server3
+
+BE server: Server4, Server5 and Server6
+
+How you need to run the commands
+date> One server
+
+ansible -i[inventory] /etc/ansible/hosts -m[module] -a[argument] [server group] 
+
+ansible -i /etc/ansible/hosts -m command -a "uptime" all
+ansible -i /etc/ansible/hosts -m command -a "Date" all
+
+DevOps Certification
+====================
+Kubernetes certificate
+Terraform certificate
+Ansible certficate
+
+Question: if you have certificate, does it mean you have knowledge?
+
+> Certificate
+> Knowledge
+
+AWS solution architect: 200$
+
+
+IBM: IBM has made most of it's learning/certificate free. These certificate are global validated, and IBM is doing validation for you.
