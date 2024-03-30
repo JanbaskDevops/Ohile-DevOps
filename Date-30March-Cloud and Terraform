@@ -1,0 +1,274 @@
+1) Platform
+============
+It's a place where you would be doing your operations.
+
+When developer is writing the code they will write all the instruction that you need to follow to install/run the application.
+
+Spring Petclinic is a Spring Boot application built using Maven or Gradle. You can build a jar file and run it from the command line (it should work just as well with Java 17 or newer):
+
+git clone https://github.com/spring-projects/spring-petclinic.git
+cd spring-petclinic
+./mvnw package
+java -jar target/*.jar
+
+You can then access the Petclinic at http://localhost:8080/.
+
+In above case we need Linux, Java 17 and Above, GIT
+
+How to get server with above requirement.
+
+1.1) Datacenter: You are managing your own system.
+         > I need ubuntu server with Java17 and GIT installed on it.
+
+     Approval, Precurement request[4-5 days], Linux[Provisining] >>> 1 Week
+
+1.2) Cloud: You can get in few minutes.
+
+Casestudy1: My server can handle 3000 users, but suddently I can see 9000 users, what should I do?
+Capacity: 3000
+Requirement: 9000
+Solution: Increase capacity to 6000
+
+Casestudy: My server can handle 30000 users, but suddently I can see 9000 users, what should I do?
+Solution: remove additional servers
+
+# In the websites traffic is fluating, and we need to handle it, but it's very hard to handle it in datacenter.
+
+Same situation in cloud we can handle in few seconds/[Minutes]
+
+CastStudy2: Cost
+Datacenter: High
+Cloud: minimal
+
+[Cost and Quality]
+
+What is Cloud?
+==============
+Cloud provide rental based infrastucture.
+
+1) Compute,
+2) Storage,
+3) Networking
+4) Database
+
+Additonal advantage is:
+1) SIMPLE GUI
+2) Documnetation
+
+Example: AWS > https://docs.aws.amazon.com/
+
+Cloud vs multicloud
+====================
+There are around 500+ cloud providers are present in the market with specialization-
+
+1) IBM cloud: Very easy to work with lagecy application.
+2) Google cloud: This is good to work with data.
+3) Oracle cloud: Good to work with Java Application.
+4) Azure: Good with enterprise application
+5) AWS: good with enterprise application
+
+Example: I have one application that uses AWS cloud for frontend, Azure for backend, and GCP for Data Engineering[Multi cloud application].
+
+
+> How to manage infracture in multi cloud environment
+
+Option1: Cloud native tools.[AWS cli, azure CLI, Google CLI]
+Option2: We can manage by console[but it's not recomeded approache]
+
+One common soltion that work on all the cloud: Terraform
+
+How?
+====
+
+My requirement is creating S3 in AWS, Storage account in Azure
+
+
+How to write terraform code?
+============================
+
+terraform {
+  required_providers {
+    aws = {
+      source = "hashicorp/aws"
+      version = "5.43.0"
+    }
+  }
+}
+
+provider "aws" {
+  resource "aws_s3_bucket" "example" {
+  bucket = "my-tf-test-bucket"
+
+  tags = {
+    Name        = "My bucket"
+    Environment = "Dev"
+  }
+}
+}
+
+terraform {
+  required_providers {
+    azurerm = {
+      source = "hashicorp/azurerm"
+      version = "3.97.1"
+    }
+  }
+}
+
+provider "azurerm" {
+  resource "azurerm_resource_group" "example" {
+  name     = "example-resources"
+  location = "West Europe"
+}
+
+resource "azurerm_storage_account" "example" {
+  name                     = "storageaccountname"
+  resource_group_name      = azurerm_resource_group.example.name
+  location                 = azurerm_resource_group.example.location
+  account_tier             = "Standard"
+  account_replication_type = "GRS"
+
+  tags = {
+    environment = "staging"
+  }
+}
+}
+
+
+1) Write a terraform code to create Azure Webapp[Linux] in Azure cloud?
+
+2) Write a terraform code for creating S3 bucket in AWS
+
+3) Write a terraform code for creating Ec2 machine in AWS
+
+Lab for Terraform:
+==================
+
+Step1: Go to killerkoda > Playground > Ubuntu  [https://killercoda.com/playgrounds/scenario/ubuntu]
+
+Step2: Go to terraform download [https://developer.hashicorp.com/terraform/install]
+
+
+What do terraform do?
+=====================
+Terraform help us to create resources in cloud by script
+
+What you know?
+1) How to write script
+2) How to install terraform
+
+
+Next:
+=====
+1) How I can create resource in terraform?
+2) Terraform commands
+3) Terraform statefile and terraform architecture
+4) Terraform module, backend and other important concept.
+
+
+Homework?
+=========
+
+Azure
+======
+1) Create storage account in Azure by terraform?
+2) Create AzureWebApp in Azure by terraform?
+3) Create App service plan in Azure
+
+AWS
+====
+1) Create VPC with 1 private and 1 prublic subnet
+2) Create S3 Bucket
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+2) Need of Cloud
+
+3) Terraform and Packer and their need along with Golden Image
+
+
