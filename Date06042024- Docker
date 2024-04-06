@@ -198,7 +198,7 @@ Rule4: to create docker file we need to write instruction on dockerfile, and we 
 Rule5: to run docker image
        docker run <imagename>
 
-Rule5: Suppose, I want to change directory or I want to perform any other action then I need to pass RUN in front to linux command.
+Rule6: Suppose, I want to change directory or I want to perform any other action then I need to pass RUN in front to linux command.
 
 Suppose, you want to change directory
    RUN cd > WORKDIR
@@ -211,4 +211,98 @@ git clone https://github.com/spring-projects/spring-petclinic.git
 cd spring-petclinic
 ./mvnw package
 java -jar target/*.jar
+
+FROM ubuntu
+RUN apt-get update
+RUN apt install openjdk-17-jre-headless -y
+RUN apt-get update
+RUN apt install git -y
+RUN git clone https://github.com/spring-projects/spring-petclinic.git
+WORKDIR spring-petclinic
+RUN ./mvnw package
+CMD java -jar target/*.jar
+
+Rule7: Whenever we want to open any port
+EXPOSE portnumber
+
+Rule8: CMD vs Entrypoint
+========================
+So, when you are specifying CMD in intruction it can get override by command line, but when you are doing it with ENTRYPOINT it cann't be overwritten.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
