@@ -1,0 +1,98 @@
+Docker playground
+=================
+Docker provides learning platform
+[Link] https://labs.play-with-docker.com/
+
+
+Docker learning
+===============
+Link: https://www.docker.com/play-with-docker/
+
+
+Docker Hub 
+==========
+It's a place where we store the images
+
+
+docker tag local-image:tagname new-repo:tagname
+docker push new-repo:tagname
+
+Docker image has 2 things
+
+Imagename:tagname[Default tag is latest]
+
+Docker push/docker pull/ docker tage[docker commads]
+=====================================================
+[Link]: https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://docs.docker.com/get-started/docker_cheatsheet.pdf&ved=2ahUKEwjmrtHkrbCFAxVI1zgGHZl8AFcQFnoECAYQAQ&usg=AOvVaw0JcpwQBtWjt88-OoOF1oo6
+
+Layering in docker image
+========================
+FROM ubuntu
+RUN apt-get update
+RUN apt install openjdk-17-jre-headless -y
+RUN apt-get update
+RUN apt install git -y
+RUN git clone https://github.com/spring-projects/spring-petclinic.git
+WORKDIR spring-petclinic
+RUN ./mvnw package
+CMD java -jar target/*.jar
+
+Docker compose
+==============
+> In the real time we would be having multiple containers, and those container need to speak with each other.
+
+> One way to enable that communication is docker compose, but it's failed because we can't use it in production.
+
+
+Docker networking
+=================
+> In the real time we would be having multiple containers, and those container need to speak with each other.
+
+> To create communication between container we create network, and those those container to network
+
+$ docker network --help
+
+Usage:  docker network COMMAND
+
+Manage networks
+
+Commands:
+  connect     Connect a container to a network
+  create      Create a network
+  disconnect  Disconnect a container from a network
+  inspect     Display detailed information on one or more networks
+  ls          List networks
+  prune       Remove all unused networks
+  rm          Remove one or more networks
+
+
+WORA with docker[write once run qnywhere]
+==============================================
+ubuntu $ docker run -idt -p 8080:8080 2020ht66049/ohile:latest
+Unable to find image '2020ht66049/ohile:latest' locally
+latest: Pulling from 2020ht66049/ohile
+bccd10f490ab: Pull complete 
+c064f558e06a: Pull complete 
+4534cf8638df: Extracting  15.04MB/94.29MB
+7902155bb56b: Download complete 
+2a7484e04534: Waiting 
+0adcf78d32c7: Waiting 
+4f4fb700ef54: Download complete 
+cd7a11da56f6: Waiting 
+
+Study material: https://github.com/JanbaskDevops/studyMatarial/tree/main/1-%20Container/Docker
+
+NextWeek:
+========
+K8s
+GIT
+
+Next to Next week
+=================
+Jenkins, sonarcloud, artifactory, Xray and CICD
+Monitoring and some learning tips[Ending our batch]
+
+
+
+
+
