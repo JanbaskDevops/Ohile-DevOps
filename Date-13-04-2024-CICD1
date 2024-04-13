@@ -1,0 +1,316 @@
+Topic: CICD
+============
+
+Sonarqube/Sonarcloud
+Artifactory/Xray
+GIT
+Jenkins
+Maven
+Testing
+
+> CICD is a heart of DevOps.
+
+> As a part of Application deployment, we are deploying same application into multiple environment. so same process is getting duplicated.
+
+> Our goal is to improve the process.
+
+Application deployment instruction
+===================================
+git clone https://github.com/spring-projects/spring-petclinic.git
+cd spring-petclinic
+./mvnw package
+java -jar target/*.jar
+
+You can then access the Petclinic at http://localhost:8080/.
+
+Here, as a part of first 3 steps one jar file created
+
+Before
+======
+ubuntu $ ls -lrt
+total 96
+-rwxr-xr-x 1 root root 11290 Apr 13 14:16 mvnw
+-rw-r--r-- 1 root root  2918 Apr 13 14:16 gradlew.bat
+-rwxr-xr-x 1 root root  8692 Apr 13 14:16 gradlew
+drwxr-xr-x 3 root root  4096 Apr 13 14:16 gradle
+-rw-r--r-- 1 root root   563 Apr 13 14:16 docker-compose.yml
+-rw-r--r-- 1 root root  2825 Apr 13 14:16 build.gradle
+-rw-r--r-- 1 root root 11360 Apr 13 14:16 LICENSE.txt
+-rw-r--r-- 1 root root    38 Apr 13 14:16 settings.gradle
+-rw-r--r-- 1 root root  9538 Apr 13 14:16 readme.md
+-rw-r--r-- 1 root root 15038 Apr 13 14:16 pom.xml
+-rw-r--r-- 1 root root  7592 Apr 13 14:16 mvnw.cmd
+drwxr-xr-x 5 root root  4096 Apr 13 14:16 src
+
+
+
+
+1) Artifactory:
+===============
+git clone https://github.com/spring-projects/spring-petclinic.git
+cd spring-petclinic
+./mvnw package
+# These commands Appox take 6-7 minutes
+
+It's basically a place where we can store/update/retrieve and delete our packages.
+
+
+2) SonarCloud
+==============
+When developer is writing the code, he might miss things as per standard[Static code analysis]
+
+
+What all we cover in sonarcloud:
+================================
+1) Security
+
+Example: Usermail: ohile@gmail.com
+         Userpassword: Ohile@321
+
+
+2) duplication(<3%)#include <stdio.h>
+
+int main() {
+
+  char op;
+  double first, second;
+  printf("Enter an operator (+, -, *, /): ");
+  scanf("%c", &op);
+  printf("Enter two operands: ");
+  scanf("%lf %lf", &first, &second);
+
+  switch (op) {
+    case '+':
+      printf("%.1lf + %.1lf = %.1lf", first, second, first + second);
+      break;
+    case '-':
+      printf("%.1lf - %.1lf = %.1lf", first, second, first - second);
+      break;
+    case '*':
+      printf("%.1lf * %.1lf = %.1lf", first, second, first * second);
+      break;
+    case '/':
+      printf("%.1lf / %.1lf = %.1lf", first, second, first / second);
+      break;
+    // operator doesn't match any case constant
+    default:
+      printf("Error! operator is not correct");
+  }
+
+  return 0;
+}
+
+Duplication is 0
+
+int main() {
+
+  char op;
+  double first, second;
+  printf("Enter an operator (+, -, *, /): ");
+  scanf("%c", &op);
+  printf("Enter two operands: ");
+  scanf("%lf %lf", &first, &second);
+
+  switch (op) {
+    case '+':
+      printf("%.1lf + %.1lf = %.1lf", first, second,);
+      break;
+    case '-':
+      printf("%.1lf - %.1lf = %.1lf", first, second,);
+      break;
+    case '*':
+      printf("%.1lf * %.1lf = %.1lf", first, second,);
+      break;
+    case '/':
+      printf("%.1lf / %.1lf = %.1lf", first, second,);
+      break;
+    // operator doesn't match any case constant
+    default:
+      printf("Error! operator is not correct");
+  }
+
+  return 0;
+}
+
+Totalline: 40
+Duplicate line: 4
+
+Duplication percentage: 10%
+
+
+3) Xray
+=======
+
+It's a security scan tool
+
+Lets say, I have created dockerized application, so I would be having 3 layer-
+
+1) Operating system
+2) Docker
+3) Application
+
+Xray perform security scan in layered manner.
+
+Scan1 for Operating system
+SCan2 for Docker
+Scan3 for Application
+
+
+CICD
+====
+CICD is a group of activity performed for a particular purpose.
+
+CICD tools: Jenkins
+
+
+What is Jenkins?
+================
+
+The leading open source automation server, Jenkins provides hundreds of plugins to support building, deploying and automating any project
+
+Teams
+-----
+1) Automation: So, instead of manual we can select automation where it will do all the needful work
+
+2) plugin:sonarcloud, Xray, artifactory
+
+Jenkins installation
+====================
+Link: https://www.jenkins.io/download/
+
+Most of the devops software are having version in below format
+<Major-relese><minor-relese><fixpack>
+
+1.[1-4].[1-12]
+
+LTS: 3 Months release
+Weekly release: Everyweek
+
+Jenkins installation:
+====================
+1) Create a linux machine by AWS
+
+Link> https://pkg.jenkins.io/debian/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Once we run above 3 steps we would be getting one jar file that we can use of deployment
+
+
+
+
+
+
+
+
