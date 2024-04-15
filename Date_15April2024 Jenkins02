@@ -1,0 +1,154 @@
+JB10401 DevOps 14th April, Class18, Jenkins
+===========================================
+> Installing Jenkins in AWS
+===========================
+Jenkins run in top of Java, so we need to install java first
+
+Link for Jenkins download: https://www.jenkins.io/download/
+
+What is Jenkins?
+================
+The leading open source automation server, Jenkins provides hundreds of plugins to support building, deploying and automating any project. 
+
+
+Task for automation?
+====================
+1) Everyday I want my dev environment to be shut down by 6 PM IST, and get it started nextday by 8 PM IST
+
+2) I want to take back of my server everyday around 4 AM in the morning
+
+In these senario, we would be running some linux job
+
+In jenkins we have 2 types of Job-
+1) Freestyle job > Here you would be getting multiple GUI options to configure the job
+2) Pipeline job
+
+
+Console Output:
+===============
+Whenever we are doing activity in jenkins, console output will display the logs
+
+Started by timer
+Running as SYSTEM
+Building in workspace /var/lib/jenkins/workspace/zzz-ohile-firstjob
+[zzz-ohile-firstjob] $ /bin/sh -xe /tmp/jenkins12236393663015869464.sh
++ echo Job is running for testing
+Job is running for testing
++ date
+Sun Apr 14 14:32:00 UTC 2024
+Finished: SUCCESS
+
+
+Started by user Ganesh
+Running as SYSTEM
+Building in workspace /var/lib/jenkins/workspace/zzz-ohile-firstjob
+[zzz-ohile-firstjob] $ /bin/sh -xe /tmp/jenkins4733082678769186263.sh
++ echo Job is running for testing
+Job is running for testing
++ date
+Sun Apr 14 14:34:52 UTC 2024
+Finished: SUCCESS
+
+
+Master architecture or Distributed architecture
+===============================================
+My requirement is I want to add multiple server
+
+Manage Jnekins> Nodes > add/remove node
+
+
+Adding pluggin
+==============
+Managejenkins > Plugins > select the plugin and install it
+
+Pipeline job
+============
+So in DevOps we have multiple phases-
+Plan code build test release deploy operate monitor
+
+
+pipeline {
+    agent any
+
+    stages {
+        stage('Plan') {
+            steps {
+                echo 'Hello World'
+            }
+        }
+        stage('Code') {
+            steps {
+                echo 'Hello World'
+            }
+        }
+        stage('Build') {
+            steps {
+                echo 'Hello World'
+            }
+        }
+        stage('Test') {
+            steps {
+                echo 'Hello World'
+            }
+        }
+        stage('Release') {
+            steps {
+                echo 'Hello World'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Hello World'
+            }
+        }
+        stage('Operate') {
+            steps {
+                echo 'Hello World'
+            }
+        }
+        stage('Monitor') {
+            steps {
+                echo 'Hello World'
+            }
+        }
+        stage('Testing1') {
+            steps {
+                echo 'Hello World'
+            }
+        }
+        stage('Testing2') {
+            steps {
+                echo 'Hello World'
+            }
+        }
+    }
+}
+
+Notes Link: https://github.com/JanbaskDevops/studyMatarial/tree/main/2-%20CICD%20Pipeline/Jenkins
+
+Pipeline {
+ 
+agent agent1
+
+Stages
+  stage
+    steps
+      "run your linix command"
+  stage
+    steps
+      "run your linix command"
+  stage
+    steps
+      "run your linix command"
+
+}
+
+
+cronjob
+========
+* * * * *
+
+Link: https://crontab.guru/
+
+
+I want to run 1 job every sunday at 4 AM
