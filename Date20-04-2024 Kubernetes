@@ -1,0 +1,174 @@
+JB10401 DevOps 20th April, Class19, Kubernetes
+==============================================
+
+With the help of Docker we are creating the images, and run those images we need Kubernetes.
+
+Docker: Docker INC[Docker swarm, docker compose, docker volume]
+        Only popular product is docker image
+Kubernetes > Google
+
+High cluster concideration K8s> https://kubernetes.io/docs/setup/best-practices/cluster-large/
+
+In K8s we have master and slave architecture.
+
+Master:4 component
+=================
+1) API Server:
+
+2) Schedular:
+
+3) Controller
+
+4) ETCD:
+
+Slave:3 component
+=================
+1) Agent>> Kubelet > This the agent that enable communication between master and slave.
+
+2) Kubeproxy>> It's networking component of K8s.
+
+3) Pod: container running in K8s Environment
+
+Example: I want to 1000 Node > 1000 node would be created
+         I want to 3000 Node > 2000 Node would be created[1000 is already created]
+         I want to delete all node > All 300 would be deleted
+
+
+1) API server: This is communication with client for creating and deleting the nodes.
+
+2) ETCD[Memory component] > it store information about the resource. like how many resource we have currently
+                          Availble resouce:  1000 > 3000 > 0
+3) Schedular: When you want to create of delete anything schedular will do that for you.
+
+4) Controller: It keep eye of Desire component and actual compoment
+
+Kubernetes commandline
+======================
+Kubernetes is working on REST API, so we would be having option create/update/retrieve and delete
+
+kubectl get/apply/delete <type>
+
+I want to check how many nodes I have
+
+controlplane $ kubectl get nodes
+NAME           STATUS   ROLES           AGE   VERSION
+controlplane   Ready    control-plane   8d    v1.29.0
+node01         Ready    <none>          8d    v1.29.0
+
+Kubectl cheatsheet> https://kubernetes.io/docs/reference/kubectl/quick-reference/
+
+Kubectl pdf cheatsheet> https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://www.altoros.com/wp-content/uploads/pdf/Kubernetes-Kubectl-CLI-Cheat-Sheet.pdf&ved=2ahUKEwiGh6DaidGFAxXmk1YBHcXQA4QQFnoECAYQAQ&usg=AOvVaw2ZpjTfKhwWW3D4SkvA3jPK 
+
+Component of kubernetes
+1) POD
+2) Replicaset
+3) Service
+3) Replication controller
+4) Deployment set
+5) Daemonset
+6) Job
+7) Cronjob
+8) Side car container
+9) Helm
+10) ISTIO and services mesh
+11) Ingress controller
+
+POD
+===
+Pod is container running in kubernetes with YAML formate
+
+So when we are running docker image we will follow below syntax
+docker run -itd -p 8080:8080 --name container1 image1
+docker run -itd -p 8080:8080 --name container1 image1 //Port is already in used
+
+'YAML formate'
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx
+spec:
+  containers:
+  - name: nginx
+    image: nginx:1.14.2
+    ports:
+    - containerPort: 80
+
+How many pods are there? kubectl get pods
+
+
+controlplane $ kubectl get nodes
+NAME           STATUS   ROLES           AGE   VERSION
+controlplane   Ready    control-plane   8d    v1.29.0
+node01         Ready    <none>          8d    v1.29.0
+controlplane $ kubectl get pods
+No resources found in default namespace.
+controlplane $ ls                
+filesystem  snap
+controlplane $ vi pod.yaml
+controlplane $ ls
+filesystem  pod.yaml  snap
+controlplane $ kubectl apply -f pod.yaml 
+pod/nginx created
+controlplane $ kubectl get pods
+NAME    READY   STATUS              RESTARTS   AGE
+nginx   0/1     ContainerCreating   0          5s
+controlplane $ 
+Replica set
+===========
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: frontend
+  labels:
+    app: guestbook
+    tier: frontend
+spec:
+  # modify replicas according to your case
+  replicas: 3
+  selector:
+    matchLabels:
+      tier: frontend
+  template:
+    metadata:
+      labels:
+        tier: frontend
+    spec:
+      containers:
+      - name: php-redis
+        image: us-docker.pkg.dev/google-samples/containers/gke/gb-frontend:v5
+
+Services in Kubernetes
+======================
+1) Headless service: Here we are dicectly accessing the container
+
+controlplane $ kubectl get pods -o wide
+NAME             READY   STATUS    RESTARTS   AGE    IP             NODE           NOMINATED NODE   READINESS GATES
+frontend-2cg54   1/1     Running   0          5m1s   192.168.0.13   controlplane   <none>           <none>
+frontend-4p4kq   1/1     Running   0          5m2s   192.168.1.8    node01         <none>           <none>
+frontend-6fz8w   1/1     Running   0          5m2s   192.168.0.5    controlplane   <none>           <none>
+frontend-6p7ht   1/1     Running   0          5m1s   192.168.1.13   node01         <none>           <none>
+
+2) Nodeport > Here we would accessing the container with the help of node
+
+3) ClusterIp: This used for internal communication between components
+
+4) Load balancer server: Passing load the best available server.
+
+controlplane $ kubectl get svc
+NAME         TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)   AGE
+kubernetes   ClusterIP   10.96.0.1    <none>        443/TCP   8d
+
+Daemon set
+==========
+Suppose you have 1 master, and 5000 nodes. Now you want to run antivirus.Then we need to run it into everynode, for that we have doemon set.
+
+Application are two type
+1) Stateful application 
+2) Stateless application
+
+Deployment set: for stateless application
+==============
+
+
+Stateful set: for stateful application
+=============
